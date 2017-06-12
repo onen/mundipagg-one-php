@@ -21,6 +21,11 @@ class CreateSaleRequest extends BaseObject
     protected $BoletoTransactionCollection;
 
     /**
+     * @var CreateSaleRequestData\OnlineDebitTransaction Objeto com os dados de débito online
+     */
+    protected $OnlineDebitTransaction;
+
+    /**
      * @var CreateSaleRequestData\Buyer Objeto com os dados do comprador
      */
     protected $Buyer;
@@ -57,6 +62,7 @@ class CreateSaleRequest extends BaseObject
     {
         $this->CreditCardTransactionCollection = null;
         $this->BoletoTransactionCollection = null;
+        $this->OnlineDebitTransaction = null;
         $this->Buyer = null;
         $this->Merchant = null;
         $this->Options = null;
@@ -117,6 +123,33 @@ class CreateSaleRequest extends BaseObject
         $this->BoletoTransactionCollection[] = $boletoTransaction;
 
         return $boletoTransaction;
+    }
+
+    /**
+     * @return CreateSaleRequestData\OnlineDebitTransaction
+     */
+    public function getOnlineDebitTransaction()
+    {
+        if (empty($this->OnlineDebitTransaction)){
+            $this->OnlineDebitTransaction = array();
+        }
+
+        return $this->OnlineDebitTransaction;
+    }
+
+    /**
+     * @param CreateSaleRequestData\OnlineDebitTransaction $onlineDebitTransaction
+     * @return CreateSaleRequestData\OnlineDebitTransaction
+     */
+    public function addOnlineDebitTransaction(CreateSaleRequestData\OnlineDebitTransaction $onlineDebitTransaction = null)
+    {
+        if ($onlineDebitTransaction == null){
+            $onlineDebitTransaction = new CreateSaleRequestData\OnlineDebitTransaction();
+        }
+
+        $this->OnlineDebitTransaction = $onlineDebitTransaction;
+
+        return $onlineDebitTransaction;
     }
 
     /**
