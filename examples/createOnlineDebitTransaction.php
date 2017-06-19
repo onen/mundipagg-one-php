@@ -7,6 +7,13 @@ try
 
     // Load configuration file with URL and Merchant Key
     require_once(dirname(__FILE__) . '\config.php');
+  
+    // Define the used URL
+    \Gateway\ApiClient::setBaseUrl(Config::URL);
+
+    // Define the Merchant Key
+    \Gateway\ApiClient::setMerchantKey(Config::MERCHANT_KEY);
+
 
     // Create request object
     $request = new \Gateway\One\DataContract\Request\CreateSaleRequest();
