@@ -44,3 +44,7 @@ $RECYCLE.BIN/
 
 # mysql workbench
 **.bak
+
+# vscode workbench
+.vs
+.vscode
