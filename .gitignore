@@ -48,3 +48,6 @@ $RECYCLE.BIN/
 # vscode workbench
 .vs
 .vscode
+
+# Composer files
+composer.lock
