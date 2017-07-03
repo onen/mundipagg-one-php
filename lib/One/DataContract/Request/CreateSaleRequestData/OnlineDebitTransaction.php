@@ -21,6 +21,11 @@ class OnlineDebitTransaction extends BaseObject
     protected $Bank;
 
     /**
+     * @var OnlineDebitTransactionOptions Objeto com as configurações opcionais da transação.
+     */
+    protected $Options;
+
+    /**
      *
      */
     public function __construct()
@@ -64,5 +69,16 @@ class OnlineDebitTransaction extends BaseObject
         $this->Bank = $bank;
 
         return $this;
+    }
+
+    /**
+     * @return OnlineDebitTransactionOptions
+     */
+    public function getOptions()
+    {
+        if (empty($this->Options)){
+            $this->Options = new OnlineDebitTransactionOptions();
+        }
+        return $this->Options;
     }
 }
