@@ -3,18 +3,21 @@
 try
 {
     // Load Dependencies
-    require_once('vendor/autoload.php');
+    require_once(dirname(__FILE__) . '\vendor\autoload.php');
+
+    // Load configuration file with URL and Merchant Key		
+    require_once(dirname(__FILE__) . '\config.php');
 
     // Define the used URL
-    \Gateway\ApiClient::setBaseUrl("https://sandbox.mundipaggone.com");
+    \Gateway\ApiClient::setBaseUrl(Config::URL);
 
     // Define the Merchant Key
-    \Gateway\ApiClient::setMerchantKey("8A2DD57F-1ED9-4153-B4CE-69683EFADAD5");
+    \Gateway\ApiClient::setMerchantKey(Config::MERCHANT_KEY);
 
     // Create request object
     $request = new \Gateway\One\DataContract\Request\CreateSaleRequest();
 
-    // Online debit transacton data
+    // Online Debit transaction data
     $onlineDebitTransaction = new \Gateway\One\DataContract\Request\CreateSaleRequestData\OnlineDebitTransaction();
     $request->addOnlineDebitTransaction($onlineDebitTransaction);
 
@@ -25,21 +28,11 @@ try
         ->setNotificationUrl("TESTE URL")
         ->setIsCashTransaction("true");
 
-    $request->getBuyer()
-        ->setName("Luke");
-
-    $request->getOrder()
+    $request		
+      	->getBuyer()
+        ->setName("Luke Skywalker")
+        ->getOrder()
         ->setOrderReference("201612201205");
-        // ->addAddress()
-        // ->setAddressType(\Gateway\One\DataContract\Enum\AddressTypeEnum::COMMERCIAL)
-        // ->setStreet("Rua da Quitanda")
-        // ->setNumber("199")
-        // ->setComplement("10º andar")
-        // ->setDistrict("Centro")
-        // ->setCity("Rio de Janeiro")
-        // ->setState("RJ")
-        // ->setZipCode("20091005")
-        // ->setCountry(\Gateway\One\DataContract\Enum\CountryEnum::BRAZIL);
 
     // Create new ApiClient object
     $client = new Gateway\ApiClient();
