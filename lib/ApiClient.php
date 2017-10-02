@@ -237,6 +237,17 @@ class ApiClient
         return $response;
     }
 
+    public function createOneRestRequest(One\DataContract\Request\createOneRestRequest $createOneRestRequest){
+        $createOneRestResponse = $this->sendRequest(null, ApiMethodEnum::POST, $createOneRestRequest);
+        if ($getCreditCardResponse->ErrorReport == null) {
+            $isSuccess = true;
+        } else {
+            $isSuccess = false;
+        }
+        $response = new BaseResponse($isSuccess, $createOneRestResponse);
+        return $response;
+    }
+
     public function createToken(One\DataContract\Request\TokenRequest $tokenRequest)
     {
         // Dispara a requisição
