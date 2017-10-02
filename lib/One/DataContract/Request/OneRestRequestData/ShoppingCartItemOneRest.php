@@ -13,37 +13,37 @@ class ShoppingCartItemOneRest extends BaseObject
     /**
      * @var string Descrição do produto
      */
-    protected $Description;
+    public $Description;
 
     /**
      * @var int Valor total do desconto em centavos
      */
-    protected $DiscountAmountInCents;
+    public $DiscountAmountInCents;
 
     /**
      * @var string Referência do produto no sistema da loja
      */
-    protected $ItemReference;
+    public $ItemReference;
 
     /**
      * @var string Nome do produto
      */
-    protected $Name;
+    public $Name;
 
     /**
      * @var int Quantidade
      */
-    protected $Quantity;
+    public $Quantity;
 
     /**
      * @var int Valor unitário em centavos
      */
-    protected $UnitCostInCents;
+    public $UnitCostInCents;
 
     /**
      * @var int Valor total em centavos
      */
-    protected $TotalCostInCents;
+    public $TotalCostInCents;
 
     /**
      * @param string $Description

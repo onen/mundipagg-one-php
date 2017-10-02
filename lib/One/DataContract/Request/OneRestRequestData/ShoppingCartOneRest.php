@@ -11,35 +11,35 @@ use Gateway\One\DataContract\Common\Address;
  */
 class ShoppingCartOneRest extends BaseObject
 {
-    /**
-     * @var string Data limite para entrega
-     */
-    protected $DeliveryDeadline;
+   /**
+    * @var string Data limite para entrega
+    */
+   public $DeliveryDeadline;
 
-    /**
-     * @var string Data estimada para entrega
-     */
-    protected $EstimatedDeliveryDate;
+   /**
+    * @var string Data estimada para entrega
+    */
+   public $estimatedDeliveryDate;
 
-    /**
-     * @var int Custo total do frete
-     */
-    protected $FreightCostInCents;
+   /**
+    * @var int Custo total do frete
+    */
+   public $freightCostInCents;
 
-    /**
-     * @var string Transportadora responsável pela entrega
-     */
-    protected $ShippingCompany;
+   /**
+    * @var string Transportadora responsável pela entrega
+    */
+   public $ShippingCompany;
 
-    /**
-     * @var ShoppingCartItem[] Lista de itens do carrinho de compra
-     */
-    protected $ShoppingCartItemCollection;
+   /**
+    * @var ShoppingCartItem[] Lista de itens do carrinho de compra
+    */
+   public $ShoppingCartItemCollection;
 
-    /**
-     * @var Address Endereço de entrega do cliente
-     */
-    protected $DeliveryAddress;
+   /**
+    * @var Address Endereço de entrega do cliente
+    */
+   public $DeliveryAddress;
 
     /**
      *

@@ -8,13 +8,13 @@ try
     \Gateway\ApiClient::setBaseUrl("https://api.mundipaggone.com/Order/OnlineDebit");
 
     // Define a chave da loja
-    \Gateway\ApiClient::setMerchantKey("85328786-8BA6-420F-9948-5352F5A183EB");
+    \Gateway\ApiClient::setMerchantKey("8A2DD57F-1ED9-4153-B4CE-69683EFADAD5");
 
-    $request = new \Gateway\One\DataContract\Request\CreateOneRestRequest();
+    $request = new \Gateway\One\DataContract\Request\OneRestRequestData\CreateOneRestRequest();
 
     $request->setAmountInCents(100)
-    ->setMerchantKey("85328786-8BA6-420F-9948-5352F5A183EB")
-    ->setBank("Itau");
+    ->setMerchantKey("8A2DD57F-1ED9-4153-B4CE-69683EFADAD5")
+    ->setBank("Cielo");
 
     $request->getBuyer()
     ->setName("Comprador Mundi")

@@ -7,16 +7,16 @@ use Gateway\One\DataContract\Common\Address;
 use Gateway\One\DataContract\Request\OneRestRequestData\PhoneRequest;
 
 class BuyerOneRest extends BaseObject{
-    protected $BuyerKey;
-    protected $Name;
-    protected $PersonTypeEnum;
-    protected $BuyerReference;
-    protected $TaxDocumentNumber;
-    protected $TaxDocumentType;
-    protected $GenderEnum;
-    protected $Email;
-    protected $PhoneRequest;
-    protected $BuyerAddressCollection;
+    public $BuyerKey;
+    public $Name;
+    public $PersonTypeEnum;
+    public $BuyerReference;
+    public $TaxDocumentNumber;
+    public $TaxDocumentType;
+    public $GenderEnum;
+    public $Email;
+    public $PhoneRequest;
+    public $BuyerAddressCollection;
 
     function __construct(){
         $this->BuyerAddressCollection = array();

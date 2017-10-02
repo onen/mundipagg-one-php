@@ -237,7 +237,7 @@ class ApiClient
         return $response;
     }
 
-    public function createOneRestRequest(One\DataContract\Request\createOneRestRequest $createOneRestRequest){
+    public function createOneRestRequest(One\DataContract\Request\OneRestRequestData\createOneRestRequest $createOneRestRequest){
         $createOneRestResponse = $this->sendRequest(null, ApiMethodEnum::POST, $createOneRestRequest);
         if ($getCreditCardResponse->ErrorReport == null) {
             $isSuccess = true;

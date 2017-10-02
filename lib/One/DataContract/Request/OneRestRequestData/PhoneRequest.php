@@ -5,11 +5,11 @@ namespace Gateway\One\DataContract\Request\OneRestRequestData;
 use Gateway\One\DataContract\Common\BaseObject;
 
 class PhoneRequest extends BaseObject{
-    protected $AreaCode;
-    protected $CountryCode;
-    protected $Extension;
-    protected $PhoneNumber;
-    protected $PhoneTypeEnum;
+    public $AreaCode;
+    public $CountryCode;
+    public $Extension;
+    public $PhoneNumber;
+    public $PhoneTypeEnum;
 
     public function getAreaCode()
     {
