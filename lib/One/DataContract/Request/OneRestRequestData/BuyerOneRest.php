@@ -7,7 +7,6 @@ use Gateway\One\DataContract\Common\Address;
 use Gateway\One\DataContract\Request\OneRestRequestData\PhoneRequest;
 
 class BuyerOneRest extends BaseObject{
-    public $BuyerKey;
     public $Name;
     public $PersonTypeEnum;
     public $BuyerReference;
@@ -101,21 +100,9 @@ class BuyerOneRest extends BaseObject{
         return $this;
     }
 
-    public function getBuyerKey()
-    {
-        return $this->BuyerKey;
-    }
-
-    public function setBuyerKey($buyerKey)
-    {
-        $this->BuyerKey = $buyerKey;
-
-        return $this;
-    }
-
     public function getBuyerAddressCollection()
     {
-        return $this->AddressCollection;
+        return $this->BuyerAddressCollection;
     }
 
     public function addBuyerAddress(Address $address = null)
@@ -125,7 +112,7 @@ class BuyerOneRest extends BaseObject{
             $address = new Address();
         }
 
-        $this->AddressCollection[] = $address;
+        $this->BuyerAddressCollection[] = $address;
 
         return $address;
     }
@@ -141,6 +128,7 @@ class BuyerOneRest extends BaseObject{
         {
             $phone = new PhoneRequest();
         }
+        $this->PhoneRequest = $phone;
         return $phone;
     }
 }

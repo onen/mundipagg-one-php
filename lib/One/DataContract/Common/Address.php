@@ -13,47 +13,47 @@ class Address extends BaseObject
     /**
      * @var string Tipo do endereço
      */
-    protected $AddressType;
+    public $AddressType;
 
     /**
      * @var string Logradouro
      */
-    protected $Street;
+    public $Street;
 
     /**
      * @var string Número
      */
-    protected $Number;
+    public $Number;
 
     /**
      * @var string Complemento do endereço
      */
-    protected $Complement;
+    public $Complement;
 
     /**
      * @var string Bairro
      */
-    protected $District;
+    public $District;
 
     /**
      * @var string Cidade
      */
-    protected $City;
+    public $City;
 
     /**
      * @var string Estado
      */
-    protected $State;
+    public $State;
 
     /**
      * @var string País
      */
-    protected $Country;
+    public $Country;
 
     /**
      * @var string CEP
      */
-    protected $ZipCode;
+    public $ZipCode;
 
     /**
      * @param $addressType

@@ -5,10 +5,10 @@ require_once(dirname(__FILE__) . '/../init.php');
 try
 {
     // Define a url utilizada
-    \Gateway\ApiClient::setBaseUrl("https://api.mundipaggone.com/Order/OnlineDebit");
+    \Gateway\ApiClient::setBaseUrl("http://localhost:9192/Order/OnlineDebit");
 
     // Define a chave da loja
-    \Gateway\ApiClient::setMerchantKey("8A2DD57F-1ED9-4153-B4CE-69683EFADAD5");
+    //\Gateway\ApiClient::setMerchantKey("8A2DD57F-1ED9-4153-B4CE-69683EFADAD5");
 
     $request = new \Gateway\One\DataContract\Request\OneRestRequestData\CreateOneRestRequest();
 
@@ -18,14 +18,19 @@ try
 
     $request->getBuyer()
     ->setName("Comprador Mundi")
-    ->setPersonTypeEnum(\Gateway\One\DataContract\Enum\PersonTypeEnum::COMPANY)
-    ->setBuyerReference("123456")
-    ->setTaxDocumentNumber("58828172000138")
-    ->setTaxDocumentType(\Gateway\One\DataContract\Enum\DocumentTypeEnum::CNPJ)
+    ->setPersonTypeEnum(\Gateway\One\DataContract\Enum\PersonTypeEnum::PERSON)
+    ->setTaxDocumentNumber("12345678900")
+    ->setTaxDocumentType(\Gateway\One\DataContract\Enum\DocumentTypeEnum::CPF)
     ->setEmail("comprador@gateway.com")
-    ->setGenderEnum(\Gateway\One\DataContract\Enum\GenderEnum::MALE)
-    ->addBuyerAddress()
-    ->setAddressType(\Gateway\One\DataContract\Enum\AddressTypeEnum::COMMERCIAL)
+    ->setGenderEnum(\Gateway\One\DataContract\Enum\GenderEnum::MALE);
+    
+     
+    $request->getBuyer()->addPhoneRequest()
+    ->setPhoneNumber("(21)41111111");
+
+    $address = new Gateway\One\DataContract\Common\Address();
+
+    $address->setAddressType(\Gateway\One\DataContract\Enum\AddressTypeEnum::COMMERCIAL)
     ->setStreet("Rua da Quitanda")
     ->setNumber("199")
     ->setComplement("10º andar")
@@ -34,6 +39,9 @@ try
     ->setState("RJ")
     ->setZipCode("20091005")
     ->setCountry(\Gateway\One\DataContract\Enum\CountryEnum::BRAZIL);
+
+    $request->getBuyer()->addBuyerAddress($address);
+
 
     $shoppingCart = $request->addShoppingCart();
     $shoppingCart->setDeliveryDeadline(new DateTime());
@@ -53,7 +61,7 @@ try
 
     $shoppingCart->addShoppingCartItem()
     ->setDescription("Apple iPhone 5s 16gb")
-    ->setDiscountAmountInCents(160000)
+    ->setDiscountAmountInCents(0)
     ->setItemReference("AI5S")
     ->setName("iPhone 5S")
     ->setQuantity(1)

@@ -9,7 +9,7 @@ use Gateway\One\DataContract\Common\BaseObject;
  * @package Gateway\One\DataContract\Request
  */
 class CreateOneRestRequest extends BaseObject{
-    public $Merchantkey;
+    public $MerchantKey;
     public $Requestkey;
     public $AmountInCents;
     public $Bank;

@@ -169,12 +169,15 @@ class ApiClient
         // Define as opções da sessão
         //curl_setopt_array($curlSession, $this->getOptions($resource, $method, $bodyData, $queryString));
         $options =  $this->getOptions($resource, $method, $bodyData, $queryString);
+        
+        
         foreach($options as $index => $value) {
             curl_setopt($curlSession, $index, $value);
         }
 
         // Dispara a requisição cURL
         $responseBody = curl_exec($curlSession);
+        
 
         // Obtém o status code http retornado
         $httpStatusCode = curl_getinfo($curlSession, CURLINFO_HTTP_CODE);
