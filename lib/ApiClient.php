@@ -266,8 +266,6 @@ class ApiClient
 
     public function createBuyer(One\DataContract\Request\CreateBuyerRequest $buyerContract)
     {
-        //var_dump($buyerContract->getBirthDate());
-        //exit;
         // Dispara a requisição
         $buyerRequest = $this->sendRequest("Buyer/", ApiMethodEnum::POST, $buyerContract->getData());
 
