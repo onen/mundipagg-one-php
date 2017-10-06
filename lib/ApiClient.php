@@ -169,12 +169,15 @@ class ApiClient
         // Define as opções da sessão
         //curl_setopt_array($curlSession, $this->getOptions($resource, $method, $bodyData, $queryString));
         $options =  $this->getOptions($resource, $method, $bodyData, $queryString);
+        
+        
         foreach($options as $index => $value) {
             curl_setopt($curlSession, $index, $value);
         }
 
         // Dispara a requisição cURL
         $responseBody = curl_exec($curlSession);
+        
 
         // Obtém o status code http retornado
         $httpStatusCode = curl_getinfo($curlSession, CURLINFO_HTTP_CODE);
@@ -221,7 +224,7 @@ class ApiClient
                 if (!$onlineDebitTransation->Success) $isSuccess = false;
             }
 
-            if (count($createSaleResponse->OnlineDebitTransaction) > 0) foreach ($createSaleResponse->BoletoTransactionResultCollection as $boletoTransaction) {
+            if (count($createSaleResponse->BoletoTransactionResultCollection) > 0) foreach ($createSaleResponse->BoletoTransactionResultCollection as $boletoTransaction) {
                 if (!$boletoTransaction->Success) $isSuccess = false;
             }
 
@@ -234,6 +237,17 @@ class ApiClient
         $response = new BaseResponse($isSuccess, $createSaleResponse);
 
         // Retorna reposta
+        return $response;
+    }
+
+    public function createOneRestRequest(One\DataContract\Request\OneRestRequestData\createOneRestRequest $createOneRestRequest){
+        $createOneRestResponse = $this->sendRequest(null, ApiMethodEnum::POST, $createOneRestRequest);
+        if ($getCreditCardResponse->ErrorReport == null) {
+            $isSuccess = true;
+        } else {
+            $isSuccess = false;
+        }
+        $response = new BaseResponse($isSuccess, $createOneRestResponse);
         return $response;
     }
 
@@ -252,8 +266,6 @@ class ApiClient
 
     public function createBuyer(One\DataContract\Request\CreateBuyerRequest $buyerContract)
     {
-        //var_dump($buyerContract->getBirthDate());
-        //exit;
         // Dispara a requisição
         $buyerRequest = $this->sendRequest("Buyer/", ApiMethodEnum::POST, $buyerContract->getData());
 
