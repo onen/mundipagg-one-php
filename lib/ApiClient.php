@@ -224,7 +224,7 @@ class ApiClient
                 if (!$onlineDebitTransation->Success) $isSuccess = false;
             }
 
-            if (count($createSaleResponse->OnlineDebitTransaction) > 0) foreach ($createSaleResponse->BoletoTransactionResultCollection as $boletoTransaction) {
+            if (count($createSaleResponse->BoletoTransactionResultCollection) > 0) foreach ($createSaleResponse->BoletoTransactionResultCollection as $boletoTransaction) {
                 if (!$boletoTransaction->Success) $isSuccess = false;
             }
 

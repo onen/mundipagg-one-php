@@ -5,15 +5,12 @@ require_once(dirname(__FILE__) . '/../init.php');
 try
 {
     // Define a url utilizada
-    \Gateway\ApiClient::setBaseUrl("http://localhost:9192/Order/OnlineDebit");
-
-    // Define a chave da loja
-    //\Gateway\ApiClient::setMerchantKey("8A2DD57F-1ED9-4153-B4CE-69683EFADAD5");
+    \Gateway\ApiClient::setBaseUrl("https://api.mundipaggone.com/Order/OnlineDebit");
 
     $request = new \Gateway\One\DataContract\Request\OneRestRequestData\CreateOneRestRequest();
 
     $request->setAmountInCents(100)
-    ->setMerchantKey("8A2DD57F-1ED9-4153-B4CE-69683EFADAD5")
+    ->setMerchantKey("85328786-8BA6-420F-9948-5352F5A183EB")
     ->setBank("Cielo");
 
     $request->getBuyer()
